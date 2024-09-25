@@ -34,8 +34,9 @@ def insert_user(user):
                     """, (user['name'], user['email'], user['phone'], user['address'], user['country']))
         conn.commit()
         inserted_user = get_user_by_id(cur.lastrowid)
-    except:
+    except Exception as e:
         conn().rollback()
+        print(e)
     finally:
         conn.close()
     return inserted_user
@@ -115,4 +116,3 @@ def delete_user(user_id):
     finally:
         conn.close()
     return message
-

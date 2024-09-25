@@ -22,8 +22,8 @@ def api_add_user():
 def api_update_user():
     user = request.get_json()
     return jsonify(update_user(user))
-@app.route('/api/users/delete/<user_id>', methods = ['DELETE'])
 
+@app.route('/api/users/delete/<user_id>', methods = ['DELETE'])
 def api_delete_user(user_id):
     return jsonify(delete_user(user_id))
 if __name__ == "__main__":
